@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Menu, X } from 'lucide-react';
-import { AIInsights } from '../CommandBar/AIInsights';
 
 interface LayoutProps {
   onRefresh?: () => void;

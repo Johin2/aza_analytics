@@ -24,7 +24,6 @@ import {
   Instagram,
   Store,
   Sparkles,
-  TrendingDown,
 } from 'lucide-react';
 import { useAIContext } from '../hooks/useAIContext';
 import { generateMetricQuery } from '../utils/metricQueryGenerator';

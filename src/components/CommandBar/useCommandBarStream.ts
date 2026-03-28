@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useCommandBar } from './CommandBarProvider';
 import { ChartConfig } from '../charts/DynamicChart';
@@ -101,11 +101,11 @@ export function useCommandBarStream() {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const eventSourceRef = useRef<EventSource | null>(null);
 
-  const currentPage = PAGE_CONTEXT_MAP[location.pathname] || {
+  const currentPage = useMemo(() => PAGE_CONTEXT_MAP[location.pathname] || {
     name: 'Dashboard',
     description: 'Aza Fashions Analytics Dashboard',
     suggestions: [],
-  };
+  }, [location.pathname]);
 
   const suggestions = [...currentPage.suggestions, ...UNIVERSAL_SUGGESTIONS];
 
