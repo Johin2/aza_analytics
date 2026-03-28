@@ -10,21 +10,14 @@ import { AIRecommendations } from '../components/ui/AIRecommendations';
 import { ChevronDown, Filter } from 'lucide-react';
 import {
   Line,
-  BarChart,
-  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
   Area,
-  AreaChart,
   ComposedChart,
-  LabelList,
   ReferenceLine,
 } from 'recharts';
 
@@ -134,34 +127,6 @@ export const SalesAnalytics: React.FC = () => {
   ];
 
   const selectedFilter = filterOptions.find(f => f.value === platformFilter)!;
-
-  const peakHoursData = [
-    { name: 'Lunch', value: data.peak_hours.lunch.percentage, color: PEAK_HOURS_COLORS.lunch },
-    { name: 'Dinner', value: data.peak_hours.dinner.percentage, color: PEAK_HOURS_COLORS.dinner },
-    { name: 'Others', value: data.peak_hours.others.percentage, color: PEAK_HOURS_COLORS.others },
-  ];
-
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({
-    cx, cy, midAngle, innerRadius, outerRadius, percent
-  }: any) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-    return (
-      <text 
-        x={x} 
-        y={y} 
-        fill="white" 
-        textAnchor={x > cx ? 'start' : 'end'} 
-        dominantBaseline="central"
-        className="font-semibold"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
-  };
 
   return (
     <>

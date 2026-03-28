@@ -4,7 +4,6 @@ import { Header } from '../components/layout/Header';
 import { Card } from '../components/ui/Card';
 import { ClickableCard } from '../components/ui/ClickableCard';
 import { Loading } from '../components/ui/Loading';
-import { StoreCard } from '../components/stores/StoreCard';
 import { StoreDetailModal } from '../components/stores/StoreDetailModal';
 import { IndiaStoreMap } from '../components/maps/IndiaStoreMap';
 import DateFilter from '../components/filters/DateFilter';
@@ -23,8 +22,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Cell,
-  ReferenceLine,
 } from 'recharts';
 
 export const StorePerformance: React.FC = () => {
@@ -35,7 +32,6 @@ export const StorePerformance: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedStore, setSelectedStore] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [sortBy, setSortBy] = useState<'revenue' | 'growth' | 'rating'>('revenue');
   const [regionalView, setRegionalView] = useState<'map' | 'chart'>('map');
   const [selectedYear, setSelectedYear] = useState<number>(2025);
